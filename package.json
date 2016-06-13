@@ -1,0 +1,19 @@
+{
+  "name": "Todo backend - express + redis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.4.0",
+    "body-parser": "^1.15.1",
+    "cors": "^2.7.1",
+    "express": "^4.13.4",
+    "node-uuid": "^1.4.7",
+    "redis": "^2.6.1"
+  }
+}
