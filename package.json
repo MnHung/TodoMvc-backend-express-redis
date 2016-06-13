@@ -1,5 +1,5 @@
 {
-  "name": "Todo backend - express + redis",
+  "name": "Todo-backend_express-and-redis",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
