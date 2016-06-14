@@ -11,7 +11,9 @@ Web service (或者你要說 server 或 back-end) 最常見的功能就是針對
 
 ## Design of Todo
 我們先來看看一個 Todo list 長怎樣 ：
+
 ![screen of todo mvc](https://camo.githubusercontent.com/6b21e79e6813819e6dd04f17e041e88b2e8bc972/68747470733a2f2f646c2e64726f70626f7875736572636f6e74656e742e636f6d2f752f363539393234392f746f646f6d76632e706e67)
+
 看來功能包括新增 Todo、刪除 Todo、可以將 Todo 勾選為 completed 狀態、還可以過濾出狀態為 completed 或 active 的 Todo。
 
 ### Design of Todo API
@@ -79,7 +81,7 @@ var create = function(title) {
         });
 };
 ```
-這實作看起來還算簡短，但接著我們會繼續實作 read, update, delete，有些東西還會再次出現。首先是 Redis 的 key。Redis [SET](http://redis.io/commands/SET) 的第一個參數是字串 `key`，key 的慣例是 **"object-type:id:field"** ，他們採用冒號 : 來做分隔，對 Todo 來說，可以用 `todo:{id}` 代表某個 todo。Key 的串接在接下來會常常出現，所以可以包裝一個函式來產生 key：
+這實作看起來還算簡短，但接著我們會繼續實作 read, update, delete，有些東西還會再次出現。首先是 Redis 的 key。Redis [SET](http://redis.io/commands/SET) 的第一個參數是字串 `key`，key 的慣例是 **{object-type}:{id}:{field}** ，他們採用冒號 ':' 來做分隔，對 Todo 來說，可以用 `todo:{id}` 代表某個 todo。Key 的串接在接下來會常常出現，所以可以包裝一個函式來產生 key：
 
 ```javascript
 function dbKey(id){
