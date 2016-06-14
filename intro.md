@@ -2,7 +2,7 @@
 以經典範例 TodoMVC 示範/練習一組常見的 web service 功能是如何實踐
 
 ## Plan
-Web service (或者你要說 server 或 back-end) 最常見的功能就是針對某種資料做 CRUD 了，在更較簡易的功能，甚至幾乎是針對某個資料來源 (例如資料庫裡的 table) 做 CRUD。但即使在較複雜的情況，RESTful API 設計也可以將概念簡化成針對某種「資源」做 CRUD。
+Web service (或者你要說 server 或 back-end) 最常見的功能就是針對某種資料做 CRUD 了，在較簡易的功能，甚至幾乎是針對某個資料來源 (例如資料庫裡的 table) 做 CRUD。但即使在較複雜的情況，RESTful API 設計也可以將概念簡化成針對某種「資源」做 CRUD。
 
 [TodoMVC](http://todomvc.com/) 之所以經典，就在於它可以涵蓋許多常見功能，做完之後還可以與其他實踐方式比較。而本範例重點不在前端，更重要的是實現其 server，[TODO-Backend](http://www.todobackend.com/)! 將 Todos 儲存在 Redis 資料庫裡。預計範例最後會出現：
  
@@ -12,7 +12,7 @@ Web service (或者你要說 server 或 back-end) 最常見的功能就是針對
 ## Design of Todo
 我們先來看看一個 Todo list 長怎樣 ：
 ![screen of todo mvc](https://camo.githubusercontent.com/6b21e79e6813819e6dd04f17e041e88b2e8bc972/68747470733a2f2f646c2e64726f70626f7875736572636f6e74656e742e636f6d2f752f363539393234392f746f646f6d76632e706e67)
-看來功能會可以新增 Todo、可以刪除 Todo、可以將 Todo 勾選為 completed 狀態、還可以過濾出狀態為 completed 或 active 的 Todo。
+看來功能包括新增 Todo、刪除 Todo、可以將 Todo 勾選為 completed 狀態、還可以過濾出狀態為 completed 或 active 的 Todo。
 
 ### Design of Todo API
 這些的功能相當符合 CRUD，可以拆為：
@@ -64,7 +64,7 @@ client.on('connect', function() {
 
 > 除了 Redis client，我們還需要可以產生 uuid 的[工具](https://github.com/broofa/node-uuid)：`var uuid = require("node-uuid");`
 
-#### **Create ** Todo 
+#### **Create** Todo 
 用 title 產生新的 Todo: 
 ```javascript
 var create = function(title) {
